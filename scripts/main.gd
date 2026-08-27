@@ -19,33 +19,6 @@ func _create_cottage() -> void:
 	cottage.scale = Vector3.ONE * cottage_scale
 	add_child(cottage)
 
-	var collision_body := StaticBody3D.new()
-	collision_body.name = "Market Cottage Collision"
-	collision_body.position = cottage_position
-	add_child(collision_body)
-
-	var cottage_size := Vector3(1.95, 1.15, 1.24) * cottage_scale
-	var wall_thickness := 0.3
-	var door_width := 1.25
-	var door_height := 2.35
-	var front_segment_width := (cottage_size.x - door_width) * 0.5
-	var front_z := -cottage_size.z * 0.5 + wall_thickness * 0.5
-
-	_create_collision_box(collision_body, Vector3(-(door_width + front_segment_width) * 0.5, 0.0, front_z), Vector3(front_segment_width, cottage_size.y, wall_thickness))
-	_create_collision_box(collision_body, Vector3((door_width + front_segment_width) * 0.5, 0.0, front_z), Vector3(front_segment_width, cottage_size.y, wall_thickness))
-	_create_collision_box(collision_body, Vector3(0.0, (cottage_size.y - door_height) * 0.5, front_z), Vector3(door_width, cottage_size.y - door_height, wall_thickness))
-	_create_collision_box(collision_body, Vector3(-cottage_size.x * 0.5 + wall_thickness * 0.5, 0.0, 0.0), Vector3(wall_thickness, cottage_size.y, cottage_size.z))
-	_create_collision_box(collision_body, Vector3(cottage_size.x * 0.5 - wall_thickness * 0.5, 0.0, 0.0), Vector3(wall_thickness, cottage_size.y, cottage_size.z))
-	_create_collision_box(collision_body, Vector3(0.0, 0.0, cottage_size.z * 0.5 - wall_thickness * 0.5), Vector3(cottage_size.x, cottage_size.y, wall_thickness))
-
-func _create_collision_box(parent: Node, position: Vector3, size: Vector3) -> void:
-	var collision := CollisionShape3D.new()
-	var shape := BoxShape3D.new()
-	shape.size = size
-	collision.position = position
-	collision.shape = shape
-	parent.add_child(collision)
-
 func _create_environment() -> void:
 	var environment := WorldEnvironment.new()
 	environment.environment = Environment.new()
