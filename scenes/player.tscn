@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/crosshair.gd" id="2_crosshair"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
-radius = 0.45
-height = 1.8
+radius = 0.35
+height = 1.6
 
 [sub_resource type="BoxMesh" id="BoxMesh_weapon"]
 size = Vector3(0.18, 0.18, 0.7)
@@ -22,7 +22,7 @@ script = ExtResource("1_player")
 shape = SubResource("CapsuleShape_player")
 
 [node name="Head" type="Node3D" parent="."]
-position = Vector3(0, 0.65, 0)
+position = Vector3(0, 0.52, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 current = true
@@ -44,4 +44,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_crosshair")
-
