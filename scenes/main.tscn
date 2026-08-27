@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://models/market_cottage.glb" id="3_cottage"]
 
 [node name="FPSDemo" type="Node3D"]
 script = ExtResource("1_main")
 player_scene = ExtResource("2_player")
-
+cottage_scene = ExtResource("3_cottage")

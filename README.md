@@ -19,4 +19,4 @@ A small Godot 4 first-person shooter starter project.
 - `Space` — jump
 - `Esc` — release or recapture the mouse
 
-The starter scene builds a small training arena at runtime, including cover, lighting, a first-person camera, and a crosshair. It is deliberately asset-free so weapons, enemies, levels, and game modes can be added quickly.
+The starter scene builds a small training arena at runtime, including cover, lighting, a first-person camera, a crosshair, and the market cottage model in `models/market_cottage.glb`. The cottage is scaled to approximately real-world proportions, with a roughly 2-meter doorway.

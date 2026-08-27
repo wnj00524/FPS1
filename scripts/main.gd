@@ -1,12 +1,34 @@
 extends Node3D
 
 @export var player_scene: PackedScene
+@export var cottage_scene: PackedScene
+@export var cottage_scale := 3.5
+@export var cottage_position := Vector3(0.0, 2.0, 14.0)
 
 func _ready() -> void:
 	_create_environment()
+	_create_cottage()
 	var player := player_scene.instantiate()
 	player.position = Vector3(0.0, 1.0, -8.0)
 	add_child(player)
+
+func _create_cottage() -> void:
+	var cottage := cottage_scene.instantiate()
+	cottage.name = "Market Cottage"
+	cottage.position = cottage_position
+	cottage.scale = Vector3.ONE * cottage_scale
+	add_child(cottage)
+
+	var collision_body := StaticBody3D.new()
+	collision_body.name = "Market Cottage Collision"
+	collision_body.position = cottage_position
+	add_child(collision_body)
+
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(1.95, 1.15, 1.24) * cottage_scale
+	collision.shape = shape
+	collision_body.add_child(collision)
 
 func _create_environment() -> void:
 	var environment := WorldEnvironment.new()
@@ -50,4 +72,3 @@ func _create_box(box_name: String, position: Vector3, size: Vector3, color: Colo
 	shape.size = size
 	collision.shape = shape
 	body.add_child(collision)
-
